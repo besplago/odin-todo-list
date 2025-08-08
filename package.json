@@ -14,12 +14,17 @@
   },
   "homepage": "https://github.com/besplago/odin-todo-list#readme",
   "keywords": [],
-  "author": "",
+  "author": "Bruce Esplago <bruce_esplago@hotmail.com> (https://github.com/besplago)",
   "license": "ISC",
   "description": "My solution for the Odin Project's Todo List assignment.",
   "devDependencies": {
+    "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
     "webpack": "^5.101.0",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.2",
+    "webpack-merge": "^6.0.1"
   }
 }
