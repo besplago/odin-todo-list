@@ -91,6 +91,7 @@ button {
 }
 
 body {
+  display: flex;
   width: 100vh;
   height: 100vh;
   background-color: var(--color-background);
@@ -122,4 +123,18 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+#todo-list {
+  flex-grow: 1;
+  background-color: #1c1c1c;
+  border-radius: 25px;
+  padding: 1rem;
+}
+
+.drop-down {
+  cursor: pointer;
+}
+
+.clickable {
 }
