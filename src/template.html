@@ -26,31 +26,97 @@
       </button>
     </div>
     <div id="todo-list">
-      <h1>Default</h1>
-      <div id="todo-past">
-        <div class="drop-down">
-          <p>Past</p>
+      <div id="todo-container">
+        <h1>Default</h1>
+        <div class="todo-category">
+          <div class="drop-down selectable highlighted">
+            <img
+              class="icon"
+              src="./assets/caret-down-svgrepo-com.svg"
+              alt="Todo Dropdown Icon"
+            />
+            <p>Past</p>
+            <p>2</p>
+          </div>
+          <div class="todo-category-container">
+            <div class="todo-task selectable highlighted">
+              <img
+                class="icon"
+                src="./assets/checkmark-circle-svgrepo-com.svg"
+                alt="Task marked as done Icon"
+              />
+              <p>Shop for a AF1's</p>
+            </div>
+            <div class="todo-task selectable highlighted">
+              <img
+                class="icon"
+                src="./assets/shape-circle-svgrepo-com.svg"
+                alt="Task not done Icon"
+              />
+              <p>Go gym</p>
+            </div>
+          </div>
         </div>
-        <div class="todo-task">
-          <p>Do stuff yesterday</p>
+        <div class="todo-category">
+          <div class="drop-down selectable highlighted">
+            <img
+              class="icon"
+              src="./assets/caret-down-svgrepo-com.svg"
+              alt="Todo Dropdown Icon"
+            />
+            <p>Today</p>
+            <p>1</p>
+          </div>
+          <div class="todo-category-container">
+            <div class="todo-task selectable highlighted">
+              <img
+                class="icon"
+                src="./assets/checkmark-circle-svgrepo-com.svg"
+                alt="Task marked as done Icon"
+              />
+              <p>Goon</p>
+            </div>
+          </div>
+        </div>
+        <div class="todo-category">
+          <div class="drop-down selectable highlighted">
+            <img
+              class="icon"
+              src="./assets/caret-down-svgrepo-com.svg"
+              alt="Todo Dropdown Icon"
+            />
+            <p>Future</p>
+            <p>2</p>
+          </div>
+          <div class="todo-category-container">
+            <div class="todo-task selectable highlighted">
+              <img
+                class="icon"
+                src="./assets/shape-circle-svgrepo-com.svg"
+                alt="Task not done Icon"
+              />
+              <p>Trap</p>
+            </div>
+            <div class="todo-task selectable highlighted">
+              <img
+                class="icon"
+                src="./assets/shape-circle-svgrepo-com.svg"
+                alt="Task not done Icon"
+              />
+              <p>Get money</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="todo-today">
-        <div class="drop-down">
-          <p>Today</p>
-        </div>
-        <div class="todo-task">
-          <p>Do stuff today</p>
-        </div>
-      </div>
-      <div id="todo-future">
-        <div class="drop-down">
-          <p>Future</p>
-        </div>
-        <div class="todo-task">
-          <p>Do stuff tomorrow</p>
-        </div>
-      </div>
+
+      <button class="selectable highlighted" type="button">
+        <img
+          class="icon"
+          src="./assets/plus-large-svgrepo-com.svg"
+          alt="Create New Project Icon"
+        />
+        <p>Add a task</p>
+      </button>
     </div>
     <div id="edit-pane"></div>
   </body>

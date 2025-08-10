@@ -82,12 +82,16 @@ h6 {
 }
 
 button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   background: none;
   color: inherit;
   border: none;
   padding: 0;
   font: inherit;
   outline: inherit;
+  text-align: left;
 }
 
 body {
@@ -120,22 +124,50 @@ body {
   gap: 1rem;
 }
 
-#new-project {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 #todo-list {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #1c1c1c;
   border-radius: 10px;
   padding: 1rem;
 }
 
-.drop-down {
-  cursor: pointer;
+#todo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.clickable {
+.todo-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-category-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.todo-task {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.drop-down {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: fit-content;
+  cursor: default;
+  padding-right: 1rem;
+}
+
+.highlighted {
+  background-color: #2a2a2a;
+  border-radius: 5px;
 }
