@@ -99,6 +99,7 @@ body {
 .icon {
   width: var(--icon-size);
   height: var(--icon-size);
+  color: white;
 }
 
 .selectable:hover {

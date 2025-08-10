@@ -4,23 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>besplago's Todo List</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div id="projects-pane">
       <div class="project selectable">
-        <img
+        <svg
           class="icon"
-          src="./assets/burger-simple-svgrepo-com.svg"
-          alt="Project Icon"
-        />
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12H20"
+            stroke="currentcolor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 17H20"
+            stroke="currentcolor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <path
+            d="M5 7H20"
+            stroke="currentcolor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
         <p>Default</p>
       </div>
       <button id="new-project" class="selectable" type="button">
-        <img
+        <svg
           class="icon"
-          src="./assets/plus-large-svgrepo-com.svg"
-          alt="Project Icon"
-        />
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 12H20M12 4V20"
+            stroke="currentcolor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
         <p>New Project</p>
       </button>
     </div>
