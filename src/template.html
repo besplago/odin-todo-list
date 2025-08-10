@@ -7,10 +7,22 @@
   </head>
   <body>
     <div id="projects-pane">
-      <div class="project">
-        <img src="./assets/burger-simple-svgrepo-com.svg" alt="Project Icon" />
+      <div class="project selectable">
+        <img
+          class="icon"
+          src="./assets/burger-simple-svgrepo-com.svg"
+          alt="Project Icon"
+        />
         <p>Default</p>
       </div>
+      <button id="new-project" class="selectable" type="button">
+        <img
+          class="icon"
+          src="./assets/plus-large-svgrepo-com.svg"
+          alt="Project Icon"
+        />
+        <p>New Project</p>
+      </button>
     </div>
     <div id="todo-list"></div>
     <div id="edit-pane"></div>
