@@ -184,6 +184,34 @@
       </footer>
     </main>
 
-    <aside id="edit-pane" aria-label="Edit task panel"></aside>
+    <aside id="edit-pane" aria-label="Edit task panel">
+      <button id="close-edit-pane" type="button">
+        <img
+          class="icon"
+          src="./assets/cross-svgrepo-com.svg"
+          alt="Close edit pane"
+        />
+      </button>
+      <form>
+        <input
+          class="highlighted"
+          type="text"
+          name="task-title"
+          id="title"
+          placeholder="Title"
+        />
+        <input type="checkbox" name="imporant" id="important" />
+        <select class="highlighted" name="project" id="project">
+          <option value="0">Default</option>
+        </select>
+        <input class="highlighted" type="date" name="duedate" id="duedate" />
+        <textarea
+          class="highlighted"
+          name="notes"
+          id="notes"
+          placeholder="Add note"
+        ></textarea>
+      </form>
+    </aside>
   </body>
 </html>
