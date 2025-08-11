@@ -200,6 +200,11 @@ body {
   margin: 0;
 }
 
+.todo {
+  display: flex;
+  gap: var(--gap-default);
+}
+
 .todo-task {
   display: flex;
   align-items: center;
@@ -228,4 +233,38 @@ footer button {
 
 #close-edit-pane {
   margin-left: auto;
+}
+
+.check-toggle input,
+.star-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.check-toggle .icon,
+.star-toggle .icon {
+  display: inline-block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.check-toggle .icon {
+  background-image: url("./assets/shape-circle-svgrepo-com.svg");
+}
+
+.check-toggle input:checked + .icon {
+  background-image: url("./assets/checkmark-circle-svgrepo-com.svg");
+}
+
+.star-toggle .icon {
+  background-image: url("./assets/star-sharp-svgrepo-com.svg");
+}
+
+.star-toggle input:checked + .icon {
+  background-image: url("./assets/star-sharp-marked-svgrepo-com.svg");
 }

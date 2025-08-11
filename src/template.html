@@ -68,41 +68,33 @@
             <span aria-label="2 tasks">2</span>
           </header>
           <ul class="todo-category-container">
-            <li>
-              <button class="todo-task selectable highlighted">
-                <img
-                  class="icon"
-                  src="./assets/checkmark-circle-svgrepo-com.svg"
-                  alt="Completed task"
-                />
-                <div class="task-details">
-                  <span>Shop for AF1's</span>
-                  <span>01-07-2025</span>
-                </div>
-                <img
-                  class="icon"
-                  src="./assets/star-sharp-svgrepo-com.svg"
-                  alt="Mark as important"
-                />
-              </button>
+            <li class="todo selectable highlighted">
+              <label class="check-toggle">
+                <input type="checkbox" name="completed" checked />
+                <span class="icon"></span>
+              </label>
+              <div class="task-details">
+                <span>Shop for AF1's</span>
+                <span>01-07-2025</span>
+              </div>
+              <label class="star-toggle">
+                <input type="checkbox" name="important" />
+                <span class="icon"></span>
+              </label>
             </li>
-            <li>
-              <button class="todo-task selectable highlighted">
-                <img
-                  class="icon"
-                  src="./assets/shape-circle-svgrepo-com.svg"
-                  alt="Pending task"
-                />
-                <div class="task-details">
-                  <span>Go gym</span>
-                  <span>05-08-2025</span>
-                </div>
-                <img
-                  class="icon"
-                  src="./assets/star-sharp-svgrepo-com.svg"
-                  alt="Mark as important"
-                />
-              </button>
+            <li class="todo selectable highlighted">
+              <label class="check-toggle">
+                <input type="checkbox" name="completed" />
+                <span class="icon"></span>
+              </label>
+              <div class="task-details">
+                <span>Go gym</span>
+                <span>05-08-2025</span>
+              </div>
+              <label class="star-toggle">
+                <input type="checkbox" name="important" />
+                <span class="icon"></span>
+              </label>
             </li>
           </ul>
         </article>
@@ -119,23 +111,19 @@
             <span aria-label="1 task">1</span>
           </header>
           <ul class="todo-category-container">
-            <li>
-              <button class="todo-task selectable highlighted">
-                <img
-                  class="icon"
-                  src="./assets/checkmark-circle-svgrepo-com.svg"
-                  alt="Completed task"
-                />
-                <div class="task-details">
-                  <span>Goon</span>
-                  <span>11-08-2025</span>
-                </div>
-                <img
-                  class="icon"
-                  src="./assets/star-sharp-marked-svgrepo-com.svg"
-                  alt="Marked as important"
-                />
-              </button>
+            <li class="todo selectable highlighted">
+              <label class="check-toggle">
+                <input type="checkbox" name="completed" checked />
+                <span class="icon"></span>
+              </label>
+              <div class="task-details">
+                <span>Goon</span>
+                <span>11-08-2025</span>
+              </div>
+              <label class="star-toggle">
+                <input type="checkbox" name="important" checked />
+                <span class="icon"></span>
+              </label>
             </li>
           </ul>
         </article>
@@ -152,41 +140,33 @@
             <span aria-label="2 tasks">2</span>
           </header>
           <ul class="todo-category-container">
-            <li>
-              <button class="todo-task selectable highlighted">
-                <img
-                  class="icon"
-                  src="./assets/shape-circle-svgrepo-com.svg"
-                  alt="Pending task"
-                />
-                <div class="task-details">
-                  <span>Trap</span>
-                  <span>15-08-2025</span>
-                </div>
-                <img
-                  class="icon"
-                  src="./assets/star-sharp-marked-svgrepo-com.svg"
-                  alt="Marked as important"
-                />
-              </button>
+            <li class="todo selectable highlighted">
+              <label class="check-toggle">
+                <input type="checkbox" name="completed" />
+                <span class="icon"></span>
+              </label>
+              <div class="task-details">
+                <span>Trap</span>
+                <span>15-08-2025</span>
+              </div>
+              <label class="star-toggle">
+                <input type="checkbox" name="important" checked />
+                <span class="icon"></span>
+              </label>
             </li>
-            <li>
-              <button class="todo-task selectable highlighted">
-                <img
-                  class="icon"
-                  src="./assets/shape-circle-svgrepo-com.svg"
-                  alt="Pending task"
-                />
-                <div class="task-details">
-                  <span>Get money</span>
-                  <span>20-08-2025</span>
-                </div>
-                <img
-                  class="icon"
-                  src="./assets/star-sharp-svgrepo-com.svg"
-                  alt="Mark as important"
-                />
-              </button>
+            <li class="todo selectable highlighted">
+              <label class="check-toggle">
+                <input type="checkbox" name="completed" />
+                <span class="icon"></span>
+              </label>
+              <div class="task-details">
+                <span>Get money</span>
+                <span>20-08-2025</span>
+              </div>
+              <label class="star-toggle">
+                <input type="checkbox" name="important" />
+                <span class="icon"></span>
+              </label>
             </li>
           </ul>
         </article>
@@ -220,14 +200,25 @@
           id="title"
           placeholder="Title"
         />
-        <input type="checkbox" name="completed" id="completed" />
-        <input type="checkbox" name="imporant" id="important" />
+
+        <label class="check-toggle">
+          <input type="checkbox" name="completed" id="completed" />
+          <span class="icon"></span>
+        </label>
+
+        <label class="star-toggle">
+          <input type="checkbox" name="important" id="important" />
+          <span class="icon"></span>
+        </label>
+
         <select class="highlighted" name="project" id="project">
           <option value="0">Default</option>
           <option value="1">Work</option>
           <option value="2">Personal</option>
         </select>
+
         <input class="highlighted" type="date" name="duedate" id="duedate" />
+
         <textarea
           class="highlighted"
           name="notes"
