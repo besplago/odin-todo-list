@@ -13,6 +13,7 @@ export class ProjectView {
     projects.forEach((project) => {
       const li = document.createElement("li");
       li.classList.add("project-row");
+      li.dataset.projectId = project.id;
 
       const projectButton = document.createElement("button");
       projectButton.classList.add("project", "selectable");
@@ -43,6 +44,16 @@ export class ProjectView {
       li.appendChild(projectButton);
       li.appendChild(deleteButton);
       this.projectListElement.appendChild(li);
+    });
+  }
+
+  bindDeleteProject(handler) {
+    this.projectListElement.addEventListener("click", (e) => {
+      if (e.target.closest(".delete-project-btn")) {
+        const li = e.target.closest("li");
+        const projectId = li.dataset.projectId;
+        handler(projectId);
+      }
     });
   }
 }
