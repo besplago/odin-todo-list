@@ -14,7 +14,6 @@ export class ProjectView {
       const li = document.createElement("li");
       li.classList.add("project-row");
 
-      // Main project select button
       const projectButton = document.createElement("button");
       projectButton.classList.add("project", "selectable");
       projectButton.type = "button";
@@ -30,7 +29,6 @@ export class ProjectView {
       projectButton.appendChild(imgBurger);
       projectButton.appendChild(span);
 
-      // Trash delete button
       const deleteButton = document.createElement("button");
       deleteButton.classList.add("delete-project-btn");
       deleteButton.type = "button";
@@ -42,7 +40,6 @@ export class ProjectView {
 
       deleteButton.appendChild(imgTrash);
 
-      // Add both to row
       li.appendChild(projectButton);
       li.appendChild(deleteButton);
       this.projectListElement.appendChild(li);
