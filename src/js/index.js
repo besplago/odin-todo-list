@@ -1,30 +1,38 @@
 import "../styles.css";
 import "../template.html";
-import { Project } from "./Project.js";
-import { Task } from "./Task.js";
+import { Project } from "./models/Project.js";
+import { Task } from "./models/Task.js";
+import { ProjectModel } from "./models/ProjectModel.js";
+import { ProjectView } from "./views/ProjectView.js";
+import { ProjectController } from "./controllers/ProjectController.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  let defaultProject = new Project("Default", [
-    new Task("Shop for AF1's", true, false, new Date(2025, 7, 1), ""),
-    new Task("Go gym", false, false, new Date(2025, 7, 5), ""),
-    new Task("Goon", true, true, new Date(Date.now()), ""),
-    new Task("Trap", false, true, new Date(2025, 12, 15), ""),
-    new Task("Get money", false, false, new Date(2026, 1, 20), ""),
-  ]);
+  const model = new ProjectModel();
 
-  let workProject = new Project("Work", [
-    new Task("Finish quarterly report", false, true, new Date(2025, 7, 14), ""),
-    new Task("Email client feedback", true, false, new Date(2025, 7, 3), ""),
-    new Task("Team standup meeting", false, true, new Date(Date.now()), ""),
-    new Task("Update project roadmap", false, false, new Date(2025, 8, 1), ""),
-    new Task("Review PRs", false, false, new Date(2025, 7, 12), ""),
-  ]);
+  // Example projects
+  model.addProject(
+    new Project("Default", [
+      new Task("Shop for AF1's", true, false, new Date(2025, 7, 1), ""),
+      new Task("Go gym", false, false, new Date(2025, 7, 5), ""),
+    ])
+  );
+  model.addProject(
+    new Project("Work", [
+      new Task(
+        "Finish quarterly report",
+        false,
+        true,
+        new Date(2025, 7, 14),
+        ""
+      ),
+    ])
+  );
+  model.addProject(
+    new Project("Personal", [
+      new Task("Call mom", false, true, new Date(2025, 7, 8), ""),
+    ])
+  );
 
-  let personalProject = new Project("Personal", [
-    new Task("Call mom", false, true, new Date(2025, 7, 8), ""),
-    new Task("Book vacation tickets", true, false, new Date(2025, 6, 25), ""),
-    new Task("Meal prep for the week", false, false, new Date(Date.now()), ""),
-    new Task("Renew gym membership", false, true, new Date(2025, 8, 5), ""),
-    new Task("Read new book", false, false, new Date(2025, 7, 20), ""),
-  ]);
+  const view = new ProjectView("#projects-pane");
+  new ProjectController(model, view);
 });
