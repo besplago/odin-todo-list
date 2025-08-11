@@ -8,10 +8,14 @@ export class ProjectController {
     this.model.bindProjectsChanged(this.onProjectsChanged);
 
     this.view.bindDeleteProject(this.handleDeleteProject);
+    this.view.bindReorderProjects(this.handleReorderProjects);
 
     const newProjectButton = document.querySelector("#new-project");
     newProjectButton.addEventListener("click", () => {
-      this.model.addProject(new Project("New Project", []));
+      const name = prompt("Project name:");
+      if (name) {
+        this.model.addProject(new Project(name, []));
+      }
     });
 
     this.onProjectsChanged(this.model.getProjects());
@@ -23,5 +27,9 @@ export class ProjectController {
 
   handleDeleteProject = (id) => {
     this.model.deleteProject(id);
+  };
+
+  handleReorderProjects = (oldIndex, newIndex) => {
+    this.model.reorderProjects(oldIndex, newIndex);
   };
 }

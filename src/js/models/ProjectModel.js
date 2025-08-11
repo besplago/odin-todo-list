@@ -25,4 +25,10 @@ export class ProjectModel {
     this.projects = this.projects.filter((project) => project.id !== id);
     this._commit(this.projects);
   }
+
+  reorderProjects(oldIndex, newIndex) {
+    const movedProject = this.projects.splice(oldIndex, 1)[0];
+    this.projects.splice(newIndex, 0, movedProject);
+    this._commit(this.projects);
+  }
 }
