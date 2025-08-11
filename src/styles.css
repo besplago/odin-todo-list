@@ -194,6 +194,11 @@ body {
   gap: var(--gap-default);
 }
 
+.task-details {
+  display: flex;
+  flex-direction: column;
+}
+
 .highlighted {
   background-color: var(--color-highlight);
   border-radius: var(--radius-small);
