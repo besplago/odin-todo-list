@@ -19,6 +19,26 @@
             <span>Default</span>
           </button>
         </li>
+        <li>
+          <button class="project selectable" type="button">
+            <img
+              class="icon"
+              src="./assets/burger-simple-svgrepo-com.svg"
+              alt="Work project"
+            />
+            <span>Work</span>
+          </button>
+        </li>
+        <li>
+          <button class="project selectable" type="button">
+            <img
+              class="icon"
+              src="./assets/burger-simple-svgrepo-com.svg"
+              alt="Personal project"
+            />
+            <span>Personal</span>
+          </button>
+        </li>
       </ul>
       <button id="new-project" class="selectable" type="button">
         <img
@@ -203,6 +223,8 @@
         <input type="checkbox" name="imporant" id="important" />
         <select class="highlighted" name="project" id="project">
           <option value="0">Default</option>
+          <option value="1">Work</option>
+          <option value="2">Personal</option>
         </select>
         <input class="highlighted" type="date" name="duedate" id="duedate" />
         <textarea
