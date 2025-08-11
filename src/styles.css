@@ -188,6 +188,11 @@ body {
   display: flex;
   align-items: center;
   gap: var(--gap-default);
+  width: 100%;
+}
+
+.delete-project-icon {
+  margin-left: auto;
 }
 
 #todo-list {
