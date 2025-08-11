@@ -192,7 +192,7 @@
           alt="Close edit pane"
         />
       </button>
-      <form>
+      <form id="edit-task-form">
         <input
           class="highlighted"
           type="text"
@@ -225,6 +225,16 @@
           id="notes"
           placeholder="Add note"
         ></textarea>
+
+        <button id="submit-todo" class="highlighted" type="submit">
+          <img
+            class="icon"
+            src="./assets/plus-large-svgrepo-com.svg"
+            alt="Add a new task"
+          />
+          <span>Add this task</span>
+          <!-- should change text to "Apply changes to task" if editing exisitng task-->
+        </button>
       </form>
     </aside>
   </body>
