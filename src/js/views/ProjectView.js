@@ -72,7 +72,6 @@ export class ProjectView {
     this.projectListElement.addEventListener("dragover", (e) => {
       e.preventDefault();
       const afterElement = this._getDragAfterElement(e.clientY);
-      console.log(afterElement);
 
       const dragging = this.projectListElement.querySelector(".dragging");
       if (afterElement == null) {
