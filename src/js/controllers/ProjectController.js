@@ -1,3 +1,5 @@
+import { Project } from "../models/Project.js";
+
 export class ProjectController {
   constructor(model, view) {
     this.model = model;
@@ -8,7 +10,9 @@ export class ProjectController {
     this.view.bindDeleteProject(this.handleDeleteProject);
 
     const newProjectButton = document.querySelector("#new-project");
-    newProjectButton.addEventListener("click", () => {});
+    newProjectButton.addEventListener("click", () => {
+      this.model.addProject(new Project("New Project", []));
+    });
 
     this.onProjectsChanged(this.model.getProjects());
   }
