@@ -12,9 +12,12 @@ export class ProjectView {
 
     projects.forEach((project) => {
       const li = document.createElement("li");
-      const button = document.createElement("button");
-      button.classList.add("project", "selectable");
-      button.type = "button";
+      li.classList.add("project-row");
+
+      // Main project select button
+      const projectButton = document.createElement("button");
+      projectButton.classList.add("project", "selectable");
+      projectButton.type = "button";
 
       const imgBurger = document.createElement("img");
       imgBurger.classList.add("icon");
@@ -24,16 +27,24 @@ export class ProjectView {
       const span = document.createElement("span");
       span.textContent = project.name;
 
+      projectButton.appendChild(imgBurger);
+      projectButton.appendChild(span);
+
+      // Trash delete button
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete-project-btn");
+      deleteButton.type = "button";
+
       const imgTrash = document.createElement("img");
       imgTrash.classList.add("icon");
-      imgTrash.classList.add("delete-project-icon");
       imgTrash.src = trashIcon;
       imgTrash.alt = `Delete ${project.name} project`;
 
-      button.appendChild(imgBurger);
-      button.appendChild(span);
-      button.appendChild(imgTrash);
-      li.appendChild(button);
+      deleteButton.appendChild(imgTrash);
+
+      // Add both to row
+      li.appendChild(projectButton);
+      li.appendChild(deleteButton);
       this.projectListElement.appendChild(li);
     });
   }

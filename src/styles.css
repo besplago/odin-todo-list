@@ -184,15 +184,25 @@ body {
   margin: 0;
 }
 
-.project {
+.project-row {
   display: flex;
   align-items: center;
-  gap: var(--gap-default);
-  width: 100%;
+  gap: var(--gap-small);
 }
 
-.delete-project-icon {
-  margin-left: auto;
+.project {
+  flex-grow: 1;
+  justify-content: flex-start;
+}
+
+.delete-project-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-project-btn:hover {
+  background: var(--color-hover);
 }
 
 #todo-list {
