@@ -7,16 +7,16 @@ import { ProjectView } from "./views/ProjectView.js";
 import { ProjectController } from "./controllers/ProjectController.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const model = new ProjectModel();
+  const projectModle = new ProjectModel();
 
   // Example projects
-  model.addProject(
+  projectModle.addProject(
     new Project("Default", [
       new Task("Shop for AF1's", true, false, new Date(2025, 7, 1), ""),
       new Task("Go gym", false, false, new Date(2025, 7, 5), ""),
     ])
   );
-  model.addProject(
+  projectModle.addProject(
     new Project("Work", [
       new Task(
         "Finish quarterly report",
@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
       ),
     ])
   );
-  model.addProject(
+  projectModle.addProject(
     new Project("Personal", [
       new Task("Call mom", false, true, new Date(2025, 7, 8), ""),
     ])
   );
 
-  const view = new ProjectView("#projects-pane");
-  new ProjectController(model, view);
+  const projectView = new ProjectView("#projects-pane");
+  new ProjectController(projectModle, projectView);
 });
