@@ -5,6 +5,7 @@ import { Task } from "./models/Task.js";
 import { ProjectModel } from "./models/ProjectModel.js";
 import { ProjectView } from "./views/ProjectView.js";
 import { ProjectController } from "./controllers/ProjectController.js";
+import { TasksView } from "./views/TasksView.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const projectModle = new ProjectModel();
@@ -35,4 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const projectView = new ProjectView("#projects-pane");
   new ProjectController(projectModle, projectView);
+
+  const tasksView = new TasksView("#todo-container");
 });
