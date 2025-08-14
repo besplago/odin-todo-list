@@ -39,6 +39,30 @@ document.addEventListener("DOMContentLoaded", function () {
         new Date(2025, 7, 17),
         "Gotham Times photographer will be hiding nearby"
       ),
+      new Task(
+        crypto.randomUUID(),
+        "Investigate mysterious laughter coming from abandoned carnival",
+        false,
+        false,
+        new Date(2024, 12, 20),
+        "Bring extra bat-earplugs - that cackling is annoying"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Disarm Joker's whoopee cushion bombs in city hall",
+        false,
+        true,
+        new Date(2025, 7, 22),
+        "Warning: May contain glitter AND confetti"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Patrol Crime Alley (anniversary night)",
+        false,
+        false,
+        new Date(2025, 7, 25),
+        "Bring flowers - and extra batarangs"
+      ),
     ])
   );
 
@@ -68,6 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
         false,
         new Date(2025, 8, 3),
         "Check expiration date on current canister"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Polish Batmobile after Catwoman's latest 'joyride'",
+        false,
+        false,
+        new Date(2025, 7, 18),
+        "Remove pawprint decals she added"
       ),
     ])
   );
@@ -99,35 +131,21 @@ document.addEventListener("DOMContentLoaded", function () {
         new Date(2025, 8, 10),
         "Hire paparazzi for yacht photoshoot"
       ),
-    ])
-  );
-
-  projectModel.addProject(
-    "Superhero Networking",
-    new TaskModel([
       new Task(
         crypto.randomUUID(),
-        "Return Flash's borrowed microwavable burrito (slightly bat-nibbled)",
+        "Renew membership at Gotham Country Club (for 'golf accident' alibi)",
+        false,
+        false,
+        new Date(2025, 7, 16),
+        "Actually learn to golf this time?"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Host board meeting about 'no, the tower antenna is NOT a bat-signal'",
         false,
         true,
-        new Date(2025, 7, 3),
-        "He runs fast but holds grudges longer"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Attend Justice League potluck (bring non-cave-aged cheese)",
-        false,
-        false,
-        new Date(2025, 7, 14),
-        "Superman promised not to x-ray the dish this time"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Fix bat-signal strobe setting (blinding pigeons counts as animal cruelty)",
-        false,
-        false,
-        new Date(2025, 7, 25),
-        "Commissioner Gordon getting migraines"
+        new Date(2025, 7, 21),
+        "Prepare unconvincing PowerPoint"
       ),
     ])
   );
