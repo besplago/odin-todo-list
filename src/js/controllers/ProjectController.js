@@ -5,7 +5,7 @@ export class ProjectController {
     this.model = model;
     this.view = view;
 
-    this.model.bindProjectsChanged(this.onProjectsChanged);
+    this.model.bind(this.onProjectsChanged);
 
     this.view.bindDeleteProject(this.handleDeleteProject);
     this.view.bindReorderProjects(this.handleReorderProjects);

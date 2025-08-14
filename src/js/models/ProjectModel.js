@@ -1,15 +1,9 @@
-export class ProjectModel {
+import { Observable } from "./Observable.js";
+
+export class ProjectModel extends Observable {
   constructor() {
+    super();
     this.projects = [];
-    this.listeners = [];
-  }
-
-  bindProjectsChanged(callback) {
-    this.listeners.push(callback);
-  }
-
-  _commit(projects) {
-    this.listeners.forEach((callback) => callback(projects));
   }
 
   addProject(project) {
