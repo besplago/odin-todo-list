@@ -7,22 +7,22 @@ import { ProjectController } from "./controllers/ProjectController.js";
 import { TasksView } from "./views/TasksView.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const projectModle = new ProjectModel();
+  const projectModel = new ProjectModel();
 
   // Example projects
-  projectModle.addProject("Default", [
+  projectModel.addProject("Default", [
     new Task("Shop for AF1's", true, false, new Date(2025, 7, 1), ""),
     new Task("Go gym", false, false, new Date(2025, 7, 5), ""),
   ]);
-  projectModle.addProject("Work", [
+  projectModel.addProject("Work", [
     new Task("Finish quarterly report", false, true, new Date(2025, 7, 14), ""),
   ]);
-  projectModle.addProject("Personal", [
+  projectModel.addProject("Personal", [
     new Task("Call mom", false, true, new Date(2025, 7, 8), ""),
   ]);
 
   const projectView = new ProjectView("#projects-pane");
-  new ProjectController(projectModle, projectView);
+  new ProjectController(projectModel, projectView);
 
   const tasksView = new TasksView("#todo-container");
   // new TasksController = new
