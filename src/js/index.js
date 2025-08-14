@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ])
   );
 
-  const projectView = new ProjectView("#projects-pane");
+  const projectView = new ProjectView("#projects-pane", "#selected-project-title");
   const projectController = new ProjectController(projectModel, projectView);
 
   const tasksView = new TasksView("#todo-container");

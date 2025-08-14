@@ -2,9 +2,13 @@ import projectIcon from "../../assets/burger-simple-svgrepo-com.svg";
 import trashIcon from "../../assets/trash-svgrepo-com.svg";
 
 export class ProjectView {
-  constructor(containerSelector) {
+  constructor(containerSelector, selectedProjectTitleSelector) {
     this.container = document.querySelector(containerSelector);
     this.projectListElement = this.container.querySelector("ul");
+
+    this.selectedProjectTitle = document.querySelector(
+      selectedProjectTitleSelector
+    );
   }
 
   renderProjects(projects) {
@@ -47,6 +51,10 @@ export class ProjectView {
       li.appendChild(deleteButton);
       this.projectListElement.appendChild(li);
     });
+  }
+
+  renderSelectedProjectTitle(title) {
+    this.selectedProjectTitle.querySelector("h1").innerHTML = title;
   }
 
   bindDeleteProject(handler) {

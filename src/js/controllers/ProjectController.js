@@ -35,7 +35,9 @@ export class ProjectController {
 
   handleProjectSelect = (id) => {
     this.currentProjectId = id;
-    this.onSelectedProjectChanged?.(this.currentProjectId);
+    const selectedProjectName = this.model.getProject(id).name;
+    this.view.renderSelectedProjectTitle(selectedProjectName);
+    this.onSelectedProjectChanged(this.currentProjectId);
   };
 
   handleReorderProjects = (oldIndex, newIndex) => {
