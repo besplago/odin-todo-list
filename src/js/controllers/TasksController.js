@@ -4,6 +4,8 @@ export class TasksController {
     this.view = tasksView;
 
     this.model.bind(this.onTasksChanged);
+
+    this.onTasksChanged(this.model.getTasks());
   }
 
   onTasksChanged = (tasks) => {
