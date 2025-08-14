@@ -4,7 +4,7 @@ export class ProjectController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    this.currentProjectID = null;
+    this.currentProjectId = null;
 
     this.model.bind(this.onProjectsChanged);
 
