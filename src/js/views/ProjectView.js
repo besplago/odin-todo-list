@@ -59,6 +59,16 @@ export class ProjectView {
     });
   }
 
+  bindSelectProject(handler) {
+    this.projectListElement.addEventListener("click", (e) => {
+      if (e.target.closest(".project")) {
+        const li = e.target.closest("li");
+        const projectId = li.dataset.projectId;
+        handler(projectId);
+      }
+    });
+  }
+
   bindReorderProjects(handler) {
     let draggedEl = null;
 

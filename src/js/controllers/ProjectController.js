@@ -4,10 +4,12 @@ export class ProjectController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.currentProjectID = null;
 
     this.model.bind(this.onProjectsChanged);
 
     this.view.bindDeleteProject(this.handleDeleteProject);
+    this.view.bindSelectProject(this.handleProjectSelect);
     this.view.bindReorderProjects(this.handleReorderProjects);
 
     const newProjectButton = document.querySelector("#new-project");
@@ -25,8 +27,15 @@ export class ProjectController {
     this.view.renderProjects(projects);
   };
 
+  onSelectedProjectChanged = (id) => {};
+
   handleDeleteProject = (id) => {
     this.model.deleteProject(id);
+  };
+
+  handleProjectSelect = (id) => {
+    this.currentProjectId = id;
+    this.onSelectedProjectChanged?.(this.currentProjectId);
   };
 
   handleReorderProjects = (oldIndex, newIndex) => {

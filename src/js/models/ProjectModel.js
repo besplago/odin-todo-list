@@ -18,6 +18,10 @@ export class ProjectModel extends Observable {
     return this.projects;
   }
 
+  getProject(id) {
+    return this.projects.find((project) => project.id === id);
+  }
+
   deleteProject(id) {
     this.projects = this.projects.filter((project) => project.id !== id);
     this._commit(this.projects);
