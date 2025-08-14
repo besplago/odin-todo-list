@@ -3,12 +3,12 @@ export class TasksController {
     this.model = taskModel;
     this.view = tasksView;
 
-    this.model.bind(this.onTasksChanged);
+    this.model.bindSelection(this.onTasksChanged);
 
-    this.onTasksChanged(this.model.getTasks());
+    this.onTasksChanged(this.model.getSelectedProject());
   }
 
-  onTasksChanged = (tasks) => {
-    this.view.renderTasks(tasks);
+  onTasksChanged = (selectedProject) => {
+    this.view.renderTasks(selectedProject.tasks.getTasks());
   };
 }
