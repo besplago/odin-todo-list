@@ -138,10 +138,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const tasksView = new TasksView("#todo-container");
   let tasksController = null;
 
-  projectController.onSelectedProjectChanged = (projectId) => {
-    const project = projectModel.getProject(projectId);
-    tasksController = new TasksController(project.tasks, tasksView);
-  };
+  // projectController.onSelectedProjectChanged = (projectId) => {
+  //   const project = projectModel.getProject(projectId);
+  //   tasksController = new TasksController(project.tasks, tasksView);
+  // };
 
   const firstProject = projectModel.getProjects()[0];
   if (firstProject) {

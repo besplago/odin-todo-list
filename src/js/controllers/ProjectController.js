@@ -4,7 +4,6 @@ export class ProjectController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    this.currentProjectId = null;
 
     this.model.bind(this.onProjectsChanged);
 
@@ -25,19 +24,15 @@ export class ProjectController {
 
   onProjectsChanged = (projects) => {
     this.view.renderProjects(projects);
+    this.view.renderSelectedProjectTitle(this.model.getSelectedProject().name);
   };
-
-  onSelectedProjectChanged = (id) => {};
 
   handleDeleteProject = (id) => {
     this.model.deleteProject(id);
   };
 
   handleProjectSelect = (id) => {
-    this.currentProjectId = id;
-    const selectedProjectName = this.model.getProject(id).name;
-    this.view.renderSelectedProjectTitle(selectedProjectName);
-    this.onSelectedProjectChanged(this.currentProjectId);
+    this.model.updateSelectedProject(id);
   };
 
   handleReorderProjects = (oldIndex, newIndex) => {
