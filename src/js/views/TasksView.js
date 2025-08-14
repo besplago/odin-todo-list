@@ -65,6 +65,7 @@ export class TasksView {
       tasks.forEach((task) => {
         const taskItem = document.createElement("li");
         taskItem.classList.add("todo", "selectable", "highlighted");
+        taskItem.dataset.taskId = task.id;
 
         const completedLabel = document.createElement("label");
         completedLabel.classList.add("check-toggle");
@@ -126,6 +127,17 @@ export class TasksView {
     if (pastSection) this.container.appendChild(pastSection);
     if (todaySection) this.container.appendChild(todaySection);
     if (futureSection) this.container.appendChild(futureSection);
+  }
+
+  bindCompletion(handler) {
+    this.container.addEventListener("change", (e) => {
+      if (e.target.matches('input[type="checkbox"][name="completed"]')) {
+        const li = e.target.closest("li");
+        if (!li) return;
+        const taskId = li.dataset.taskId;
+        handler(taskId, e.target.checked);
+      }
+    });
   }
 
   formatDate(dateString) {

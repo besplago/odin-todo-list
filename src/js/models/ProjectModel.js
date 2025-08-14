@@ -81,4 +81,8 @@ export class ProjectModel {
       (project) => project.id === this.selectedProjectId
     );
   }
+
+  getSelectedProjectTaskModel() {
+    return this.getSelectedProject().tasks;
+  }
 }

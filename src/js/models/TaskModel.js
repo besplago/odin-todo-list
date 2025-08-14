@@ -18,6 +18,16 @@ export class TaskModel extends Observable {
     return this.tasks;
   }
 
+  getTask(id) {
+    return this.tasks.find((task) => task.id === id);
+  }
+
+  updateCompletion(id) {
+    const task = this.getTask(id);
+    task.completed = !task.completed;
+    console.log(`New status ${task.completed}`);
+  }
+
   deleteTasks(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this._commit(this.tasks);
