@@ -25,7 +25,11 @@ export class TaskModel extends Observable {
   updateCompletion(id) {
     const task = this.getTask(id);
     task.completed = !task.completed;
-    console.log(`New status ${task.completed}`);
+  }
+
+  updateImportance(id) {
+    const task = this.getTask(id);
+    task.important = !task.important;
   }
 
   deleteTasks(id) {

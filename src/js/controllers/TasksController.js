@@ -6,6 +6,7 @@ export class TasksController {
     this.model.bindSelection(this.onTasksChanged);
 
     this.view.bindCompletion(this.handleCompletion);
+    this.view.bindImportant(this.handleImportant);
 
     this.onTasksChanged(this.model.getSelectedProject());
   }
@@ -16,6 +17,11 @@ export class TasksController {
 
   handleCompletion = (taskId) => {
     const taskModel = this.model.getSelectedProjectTaskModel();
-    taskModel.markTaskAsComplete(taskId);
+    taskModel.updateCompletion(taskId);
+  };
+
+  handleImportant = (taskId) => {
+    const taskModel = this.model.getSelectedProjectTaskModel();
+    taskModel.updateImportance(taskId);
   };
 }
