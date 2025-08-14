@@ -22,14 +22,14 @@ export class TaskModel extends Observable {
     return this.tasks.find((task) => task.id === id);
   }
 
-  updateCompletion(id) {
+  updateCompletion(id, completed) {
     const task = this.getTask(id);
-    task.completed = !task.completed;
+    task.completed = completed;
   }
 
-  updateImportance(id) {
+  updateImportance(id, important) {
     const task = this.getTask(id);
-    task.important = !task.important;
+    task.important = important;
   }
 
   deleteTasks(id) {

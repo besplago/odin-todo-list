@@ -15,13 +15,13 @@ export class TasksController {
     this.view.renderTasks(selectedProject.tasks.getTasks());
   };
 
-  handleCompletion = (taskId) => {
+  handleCompletion = (taskId, completed) => {
     const taskModel = this.model.getSelectedProjectTaskModel();
-    taskModel.updateCompletion(taskId);
+    taskModel.updateCompletion(taskId, completed);
   };
 
-  handleImportant = (taskId) => {
+  handleImportant = (taskId, important) => {
     const taskModel = this.model.getSelectedProjectTaskModel();
-    taskModel.updateImportance(taskId);
+    taskModel.updateImportance(taskId, important);
   };
 }
