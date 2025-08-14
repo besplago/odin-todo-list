@@ -286,6 +286,10 @@ footer button {
   flex-direction: column;
 }
 
+#edit-pane.hidden {
+  display: none;
+}
+
 #close-edit-pane {
   margin-left: auto;
 }
