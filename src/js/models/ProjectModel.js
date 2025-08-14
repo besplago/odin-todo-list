@@ -1,4 +1,5 @@
 import { Observable } from "./Observable.js";
+import { Project } from "./Project.js";
 
 export class ProjectModel extends Observable {
   constructor() {
@@ -6,7 +7,9 @@ export class ProjectModel extends Observable {
     this.projects = [];
   }
 
-  addProject(project) {
+  addProject(name, tasks) {
+    const id = crypto.randomUUID();
+    const project = new Project(name, tasks, id);
     this.projects.push(project);
     this._commit(this.projects);
   }
