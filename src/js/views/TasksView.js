@@ -111,6 +111,15 @@ export class TasksView {
         taskItem.appendChild(details);
         taskItem.appendChild(importantLabel);
 
+        [
+          completedLabel,
+          completedInput,
+          importantLabel,
+          importantInput,
+        ].forEach((el) => {
+          el.addEventListener("click", (e) => e.stopPropagation());
+        });
+
         taskList.appendChild(taskItem);
       });
 
