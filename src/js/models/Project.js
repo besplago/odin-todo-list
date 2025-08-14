@@ -1,5 +1,5 @@
 export class Project {
-  constructor(name, tasks, id) {
+  constructor(id, name, tasks) {
     this.id = id;
     this.name = name;
     this.tasks = tasks;

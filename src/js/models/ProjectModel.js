@@ -9,7 +9,7 @@ export class ProjectModel extends Observable {
 
   addProject(name, tasks) {
     const id = crypto.randomUUID();
-    const project = new Project(name, tasks, id);
+    const project = new Project(id, name, tasks);
     this.projects.push(project);
     this._commit(this.projects);
   }
