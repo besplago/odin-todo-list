@@ -1,11 +1,29 @@
 import { Observable } from "./Observable.js";
 import { Project } from "./Project.js";
 
-export class ProjectModel extends Observable {
+export class ProjectModel {
   constructor() {
-    super();
+    this.projectsObservable = new Observable();
+    this.selectionObservable = new Observable();
+
     this.projects = [];
     this.selectedProjectId = null;
+  }
+
+  bindProjects(callback) {
+    this.projectsObservable.bind(callback);
+  }
+
+  bindSelection(callback) {
+    this.selectionObservable.bind(callback);
+  }
+
+  _commitProjects() {
+    this.projectsObservable._commit([...this.projects]);
+  }
+
+  _commitSelection() {
+    this.selectionObservable._commit(this.getSelectedProject());
   }
 
   addProject(name, tasks) {
@@ -16,11 +34,13 @@ export class ProjectModel extends Observable {
 
     const project = new Project(id, name, tasks);
     this.projects.push(project);
-    this._commit(this.projects);
+
+    this._commitProjects();
+    this._commitSelection();
   }
 
   getProjects() {
-    return this.projects;
+    return [...this.projects];
   }
 
   getProject(id) {
@@ -37,18 +57,23 @@ export class ProjectModel extends Observable {
       this.selectedProjectId = this.projects[0].id;
     }
 
-    this._commit(this.projects);
+    this._commitProjects();
+    if (wasSelectedProject) {
+      this._commitSelection();
+    }
   }
 
   reorderProjects(oldIndex, newIndex) {
     const movedProject = this.projects.splice(oldIndex, 1)[0];
     this.projects.splice(newIndex, 0, movedProject);
-    this._commit(this.projects);
+    this._commitProjects();
   }
 
   updateSelectedProject(id) {
-    this.selectedProjectId = id;
-    this._commit(this.projects); // For now, better way to handle this?
+    if (this.selectedProjectId !== id) {
+      this.selectedProjectId = id;
+      this._commitSelection();
+    }
   }
 
   getSelectedProject() {

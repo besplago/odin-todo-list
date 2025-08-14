@@ -5,7 +5,8 @@ export class ProjectController {
     this.model = model;
     this.view = view;
 
-    this.model.bind(this.onProjectsChanged);
+    this.model.bindProjects(this.onProjectsChanged);
+    this.model.bindSelection(this.onSelectionChanged);
 
     this.view.bindDeleteProject(this.handleDeleteProject);
     this.view.bindSelectProject(this.handleProjectSelect);
@@ -20,11 +21,15 @@ export class ProjectController {
     });
 
     this.onProjectsChanged(this.model.getProjects());
+    this.onSelectionChanged(this.model.getSelectedProject());
   }
 
   onProjectsChanged = (projects) => {
     this.view.renderProjects(projects);
-    this.view.renderSelectedProjectTitle(this.model.getSelectedProject().name);
+  };
+
+  onSelectionChanged = (selectedProject) => {
+    this.view.renderSelectedProjectTitle(selectedProject.name);
   };
 
   handleDeleteProject = (id) => {
