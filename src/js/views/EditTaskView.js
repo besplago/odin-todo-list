@@ -13,7 +13,7 @@ export class EditTaskView {
 
   bindCloseEditPane(handler) {
     const closeEditPaneButton = document.querySelector("#close-edit-pane");
-    closeEditPaneButton.addEventListener("click", (e) => {
+    closeEditPaneButton.addEventListener("click", (_e) => {
       handler();
     });
   }
