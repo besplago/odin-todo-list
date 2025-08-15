@@ -25,7 +25,6 @@ export class TaskModel extends Observable {
 
   updateSelectedTask(id) {
     this.selectedTaskId = id;
-    console.log(`Selected task ${id}`);
   }
 
   updateCompletion(id, completed) {
