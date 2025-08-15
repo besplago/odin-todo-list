@@ -17,6 +17,8 @@ export class TasksController {
   };
 
   handleTaskSelection = (taskId) => {
+    // Instead of manually handling the updating of the view here, we can make the task model fire
+    // an event when the selected taskupdates which we bind to in an "on" function
     const taskModel = this.projectModel.getSelectedProjectTaskModel();
     taskModel.updateSelectedTask(taskId);
     this.editTaskView.openEditPane(taskModel.getSelectedTaskId());
