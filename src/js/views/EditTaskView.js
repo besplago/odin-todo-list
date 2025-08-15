@@ -4,6 +4,14 @@
 
 export class EditTaskView {
   constructor(editPaneSelector) {
-    this.paneContainer = document.querySelector(editPaneSelector);
+    this.paneAside = document.querySelector(editPaneSelector);
+  }
+
+  openEditPane(selectedTaskId) {
+    if (selectedTaskId === null) {
+      return;
+    }
+
+    this.paneAside.classList.toggle("hidden", false);
   }
 }

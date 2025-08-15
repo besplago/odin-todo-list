@@ -19,6 +19,7 @@ export class TasksController {
   handleTaskSelection = (taskId) => {
     const taskModel = this.projectModel.getSelectedProjectTaskModel();
     taskModel.updateSelectedTask(taskId);
+    this.editTaskView.openEditPane(taskModel.getSelectedTaskId());
   };
 
   handleCompletion = (taskId, completed) => {

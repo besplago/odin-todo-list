@@ -23,6 +23,10 @@ export class TaskModel extends Observable {
     return this.tasks.find((task) => task.id === id);
   }
 
+  getSelectedTaskId() {
+    return this.selectedTaskId;
+  }
+
   updateSelectedTask(id) {
     this.selectedTaskId = id;
   }
