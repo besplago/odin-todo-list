@@ -1,18 +1,36 @@
 import { Observable } from "./Observable.js";
 import { Task } from "./Task.js";
 
-export class TaskModel extends Observable {
+export class TaskModel {
   constructor(tasks = []) {
-    super();
+    this.tasksObservable = new Observable();
+    this.selectionObservable = new Observable();
+
     this.tasks = tasks;
     this.selectedTaskId = null;
+  }
+
+  bindTasks(callback) {
+    this.tasksObservable.bind(callback);
+  }
+
+  bindSelection(callback) {
+    this.selectionObservable.bind(callback);
+  }
+
+  _commitTasks() {
+    this.tasksObservable._commit([...this.tasks]);
+  }
+
+  _commitSelection() {
+    this.selectionObservable._commit(this.getSelectedTask());
   }
 
   addTask(title, completed, important, dueDate, notes) {
     const id = crypto.randomUUID();
     const task = new Task(id, title, completed, important, dueDate, notes);
     this.tasks.push(task);
-    this._commit(this.tasks);
+    this._commitTasks(this.tasks);
   }
 
   getTasks() {
@@ -27,8 +45,16 @@ export class TaskModel extends Observable {
     return this.selectedTaskId;
   }
 
+  getSelectedTask() {
+    if (this.selectedTaskId === null) {
+      return null;
+    }
+    return this.tasks.find((task) => task.id === this.selectedTaskId);
+  }
+
   updateSelectedTask(id) {
     this.selectedTaskId = id;
+    this._commitSelection();
   }
 
   updateCompletion(id, completed) {
@@ -43,6 +69,6 @@ export class TaskModel extends Observable {
 
   deleteTasks(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
-    this._commit(this.tasks);
+    this._commitTasks();
   }
 }

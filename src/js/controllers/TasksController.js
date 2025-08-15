@@ -1,6 +1,7 @@
 export class TasksController {
   constructor(projectModel, views) {
     this.projectModel = projectModel;
+    this.taskModel = null;
     [this.tasksView, this.editTaskView] = views;
 
     this.projectModel.bindSelection(this.onSelectedProjectChanged);
@@ -13,24 +14,24 @@ export class TasksController {
   }
 
   onSelectedProjectChanged = (selectedProject) => {
+    this.taskModel = this.projectModel.getSelectedProjectTaskModel();
+    this.taskModel.bindSelection(this.onSelectedTaskChanged);
     this.tasksView.renderTasks(selectedProject.tasks.getTasks());
   };
 
+  onSelectedTaskChanged = (selectedTask) => {
+    this.editTaskView.openEditPane(selectedTask);
+  };
+
   handleTaskSelection = (taskId) => {
-    // Instead of manually handling the updating of the view here, we can make the task model fire
-    // an event when the selected task updates which we bind to in an "on" function
-    const taskModel = this.projectModel.getSelectedProjectTaskModel();
-    taskModel.updateSelectedTask(taskId);
-    this.editTaskView.openEditPane(taskModel.getSelectedTaskId());
+    this.taskModel.updateSelectedTask(taskId);
   };
 
   handleCompletion = (taskId, completed) => {
-    const taskModel = this.projectModel.getSelectedProjectTaskModel();
-    taskModel.updateCompletion(taskId, completed);
+    this.taskModel.updateCompletion(taskId, completed);
   };
 
   handleImportant = (taskId, important) => {
-    const taskModel = this.projectModel.getSelectedProjectTaskModel();
-    taskModel.updateImportance(taskId, important);
+    this.taskModel.updateImportance(taskId, important);
   };
 }

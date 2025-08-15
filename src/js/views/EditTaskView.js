@@ -7,8 +7,8 @@ export class EditTaskView {
     this.paneAside = document.querySelector(editPaneSelector);
   }
 
-  openEditPane(selectedTaskId) {
-    if (selectedTaskId === null) {
+  openEditPane(selectedTask) {
+    if (selectedTask === null) {
       return;
     }
 
