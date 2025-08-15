@@ -1,19 +1,19 @@
 export class TasksController {
-  constructor(projectModel, tasksView) {
+  constructor(projectModel, views) {
     this.projectModel = projectModel;
-    this.view = tasksView;
+    [this.tasksView, this.editTaskView] = views;
 
     this.projectModel.bindSelection(this.onSelectedProjectChanged);
 
-    this.view.bindSelectTask(this.handleTaskSelection);
-    this.view.bindCompletion(this.handleCompletion);
-    this.view.bindImportant(this.handleImportant);
+    this.tasksView.bindSelectTask(this.handleTaskSelection);
+    this.tasksView.bindCompletion(this.handleCompletion);
+    this.tasksView.bindImportant(this.handleImportant);
 
     this.onSelectedProjectChanged(this.projectModel.getSelectedProject());
   }
 
   onSelectedProjectChanged = (selectedProject) => {
-    this.view.renderTasks(selectedProject.tasks.getTasks());
+    this.tasksView.renderTasks(selectedProject.tasks.getTasks());
   };
 
   handleTaskSelection = (taskId) => {

@@ -7,6 +7,7 @@ import { ProjectController } from "./controllers/ProjectController.js";
 import { TaskModel } from "./models/TaskModel.js";
 import { TasksView } from "./views/TasksView.js";
 import { TasksController } from "./controllers/TasksController.js";
+import { EditTaskView } from "./views/EditTaskView.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const projectModel = new ProjectModel();
@@ -162,5 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const tasksView = new TasksView("#todo-container");
-  new TasksController(projectModel, tasksView);
+  const editTaskView = new EditTaskView("#edit-pane");
+
+  new TasksController(projectModel, [tasksView, editTaskView]);
 });
