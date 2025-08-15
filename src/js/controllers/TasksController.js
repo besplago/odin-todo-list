@@ -22,7 +22,7 @@ export class TasksController {
   };
 
   onSelectedTaskChanged = (selectedTask) => {
-    this.editTaskView.openEditPane(selectedTask);
+    this.editTaskView.toggleEditPaneVisibility(selectedTask);
   };
 
   handleTaskSelection = (taskId) => {

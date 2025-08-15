@@ -59,6 +59,7 @@ export class TaskModel {
 
   deselectTask() {
     this.selectedTaskId = null;
+    this._commitSelection();
   }
 
   updateCompletion(id, completed) {
