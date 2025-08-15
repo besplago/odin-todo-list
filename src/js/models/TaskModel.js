@@ -57,6 +57,10 @@ export class TaskModel {
     this._commitSelection();
   }
 
+  deselectTask() {
+    this.selectedTaskId = null;
+  }
+
   updateCompletion(id, completed) {
     const task = this.getTask(id);
     task.completed = completed;
