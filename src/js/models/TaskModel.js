@@ -5,6 +5,7 @@ export class TaskModel extends Observable {
   constructor(tasks = []) {
     super();
     this.tasks = tasks;
+    this.selectedTaskId = null;
   }
 
   addTask(title, completed, important, dueDate, notes) {
@@ -20,6 +21,11 @@ export class TaskModel extends Observable {
 
   getTask(id) {
     return this.tasks.find((task) => task.id === id);
+  }
+
+  updateSelectedTask(id) {
+    this.selectedTaskId = id;
+    console.log(`Selected task ${id}`);
   }
 
   updateCompletion(id, completed) {

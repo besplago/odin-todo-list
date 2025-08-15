@@ -138,6 +138,17 @@ export class TasksView {
     if (futureSection) this.container.appendChild(futureSection);
   }
 
+  bindSelectTask(handler) {
+    this.container.addEventListener("click", (e) => {
+      if (e.target.closest(".todo")) {
+        const li = e.target.closest("li");
+        if (!li) return;
+        const taskId = li.dataset.taskId;
+        handler(taskId);
+      }
+    });
+  }
+
   bindCompletion(handler) {
     this.container.addEventListener("change", (e) => {
       if (e.target.matches('input[type="checkbox"][name="completed"]')) {
