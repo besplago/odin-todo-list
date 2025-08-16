@@ -35,25 +35,19 @@ export class EditTaskView {
   }
 
   bindUpdateTask(handler) {
-    const updateTaskButton = this.paneAside.querySelector("#submit-todo");
-
-    updateTaskButton.addEventListener("click", (e) => {
+    this.form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const title = this.form.querySelector("#title").value;
-      const completed = this.form.querySelector("#completed").checked;
-      const important = this.form.querySelector("#important").checked;
-      const dueDate = this.form.querySelector("#duedate").value;
-      const notes = this.form.querySelector("#notes").value;
-
-      const updatedTask = {
-        title: title || "",
-        completed: completed,
-        important: important,
-        dueDate: dueDate || null,
-        notes: notes || "",
-      };
-
-      handler(updatedTask);
+      handler(this.getFormData());
     });
+  }
+
+  getFormData() {
+    return {
+      title: this.form.title.value.trim() || "",
+      completed: this.form.completed.checked,
+      important: this.form.important.checked,
+      dueDate: this.form.duedate.value || null,
+      notes: this.form.notes.value.trim() || "",
+    };
   }
 }
