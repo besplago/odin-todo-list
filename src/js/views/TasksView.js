@@ -1,4 +1,5 @@
 import caretIcon from "../../assets/caret-down-svgrepo-com.svg";
+import deleteIcon from "../../assets/trash-svgrepo-com.svg";
 
 export class TasksView {
   constructor(tasksContainerSelector) {
@@ -107,15 +108,27 @@ export class TasksView {
         importantLabel.appendChild(importantInput);
         importantLabel.appendChild(importantIcon);
 
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-task");
+        deleteButton.setAttribute("aria-label", "Delete task");
+
+        const deleteImg = document.createElement("img");
+        deleteImg.src = deleteIcon;
+        deleteImg.alt = "Delete";
+        deleteImg.classList.add("icon");
+        deleteButton.appendChild(deleteImg);
+
         taskItem.appendChild(completedLabel);
         taskItem.appendChild(details);
         taskItem.appendChild(importantLabel);
+        taskItem.appendChild(deleteButton);
 
         [
           completedLabel,
           completedInput,
           importantLabel,
           importantInput,
+          deleteButton,
         ].forEach((el) => {
           el.addEventListener("click", (e) => e.stopPropagation());
         });
