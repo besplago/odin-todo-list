@@ -70,18 +70,18 @@ h6 {
 /* my css */
 
 :root {
-  /* Typography */
-  --font-default: "Roboto", sans-serif;
+  /* Typography - bolder, heroic font */
+  --font-default: "Bangers", "Roboto", sans-serif;
 
   /* Icon sizes */
   --icon-size: 2rem;
 
-  /* Colors */
-  --color-background: #232323;
-  --color-background-alt: #1c1c1c;
-  --color-highlight: #2a2a2a;
+  /* Superman Color Palette */
+  --color-background: #0a2a5a;
+  --color-background-alt: #081e44;
+  --color-highlight: #d62d20;
+  --color-accent: #ffd100;
   --color-font: #ffffff;
-  --color-hover: rgba(255, 255, 255, 0.2);
 
   /* Layout & spacing */
   --gap-small: 0.2rem;
@@ -89,13 +89,14 @@ h6 {
   --gap-default: 1rem;
 
   /* Border radius */
-  --radius-small: 5px;
-  --radius-default: 10px;
+  --radius-small: 4px;
+  --radius-default: 8px;
 }
 
 * {
   font-family: var(--font-default);
   color: var(--color-font);
+  letter-spacing: 0.5px;
 }
 
 button {
@@ -110,26 +111,37 @@ button {
   outline: inherit;
   text-align: left;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 textarea,
 select,
 input {
-  background: none;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   color-scheme: dark;
+  border-radius: var(--radius-small);
+  padding: 0.5rem;
 }
 
 body {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: var(--color-background);
+  background: radial-gradient(
+      circle at top left,
+      rgba(218, 41, 28, 0.15),
+      transparent 25%
+    ),
+    linear-gradient(to bottom, #0a2a5a, #081e44);
+  background-attachment: fixed;
+  margin: 0;
 }
 
 .icon {
   width: var(--icon-size);
   height: var(--icon-size);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
 }
 
 .check-toggle input,
@@ -156,6 +168,7 @@ body {
 
 .check-toggle input:checked + .icon {
   background-image: url("./assets/checkmark-circle-svgrepo-com.svg");
+  filter: drop-shadow(0 0 4px var(--color-accent));
 }
 
 .star-toggle .icon {
@@ -164,10 +177,12 @@ body {
 
 .star-toggle input:checked + .icon {
   background-image: url("./assets/star-sharp-marked-svgrepo-com.svg");
+  filter: drop-shadow(0 0 6px var(--color-accent));
 }
 
 .selectable:hover {
-  background: var(--color-hover);
+  background: rgba(255, 209, 0, 0.15);
+  transform: translateY(-1px);
 }
 
 #projects-pane {
@@ -176,6 +191,8 @@ body {
   justify-content: space-between;
   height: 100%;
   padding: var(--gap-default);
+  border-right: 2px solid var(--color-accent);
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.3);
 }
 
 #projects-pane ul {
@@ -188,35 +205,44 @@ body {
   display: flex;
   align-items: center;
   gap: var(--gap-small);
+  padding: 0.6rem;
+  border-radius: var(--radius-small);
+  margin-bottom: 0.5rem;
 }
 
 .project-row.dragging {
-  opacity: 0.5;
-  background-color: var(--color-hover);
+  opacity: 0.7;
+  background: rgba(218, 41, 28, 0.3);
 }
 
 .project {
   flex-grow: 1;
   justify-content: flex-start;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .delete-project-btn {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 50%;
 }
 
 .delete-project-btn:hover {
-  background: var(--color-hover);
+  background: var(--color-highlight);
 }
 
 #todo-list {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background-alt);
+  background: rgba(8, 30, 68, 0.7);
   border-radius: var(--radius-default);
   padding: var(--gap-default);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 209, 0, 0.3);
 }
 
 #todo-container {
@@ -229,6 +255,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--gap-medium);
+  padding: 1rem;
+  background: rgba(10, 42, 90, 0.5);
+  border-radius: var(--radius-default);
+  border-left: 3px solid var(--color-highlight);
 }
 
 .drop-down {
@@ -238,6 +268,9 @@ body {
   width: fit-content;
   cursor: default;
   padding-right: var(--gap-default);
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
 }
 
 .todo-category-container {
@@ -253,6 +286,13 @@ body {
   display: flex;
   align-items: center;
   gap: var(--gap-default);
+  padding: 0.8rem;
+  border-radius: var(--radius-small);
+  transition: all 0.2s ease;
+}
+
+.todo:hover {
+  background: rgba(255, 209, 0, 0.1);
 }
 
 .todo-task {
@@ -268,22 +308,55 @@ body {
   margin-right: auto;
 }
 
+.task-details h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.task-details h3:after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
 .highlighted {
-  background-color: var(--color-highlight);
+  background: rgba(218, 41, 28, 0.25) !important;
   border-radius: var(--radius-small);
+  box-shadow: 0 0 8px rgba(218, 41, 28, 0.4);
 }
 
 footer {
   margin-top: auto;
+  padding-top: 1rem;
 }
 
 footer button {
   width: fit-content;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-highlight);
+  border-radius: var(--radius-small);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+footer button:hover {
+  background: #b3241a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #edit-pane {
   display: flex;
   flex-direction: column;
+  background: rgba(8, 30, 68, 0.9);
+  padding: 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
 }
 
 #edit-pane.hidden {
@@ -292,14 +365,48 @@ footer button {
 
 #close-edit-pane {
   margin-left: auto;
+  background: var(--color-highlight);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-small);
+}
+
+#close-edit-pane:hover {
+  background: #b3241a;
 }
 
 #edit-task-form {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
+}
+
+#edit-task-form input,
+#edit-task-form textarea,
+#edit-task-form select {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border-radius: var(--radius-small);
+}
+
+#edit-task-form textarea {
+  min-height: 120px;
 }
 
 #submit-todo {
   margin-top: auto;
+  padding: 0.8rem;
+  background: var(--color-highlight);
+  font-size: 1.2rem;
+  border-radius: var(--radius-small);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#submit-todo:hover {
+  background: #b3241a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }

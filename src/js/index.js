@@ -14,139 +14,155 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Example projects
   projectModel.addProject(
-    "Gotham Patrol",
+    "Metropolis Patrol",
     new TaskModel([
       new Task(
         crypto.randomUUID(),
-        "Return stolen dinosaur from museum (Riddler's being extra again)",
+        "Stop Lex Luthor's kryptonite smuggling operation",
         true,
         false,
-        new Date(2025, 6, 15),
-        "Note: Tell Alfred to dry-clean cape - dino drool stains"
+        new Date(2025, 7, 16), // Today's date
+        "Note: Bring lead-lined suit - kryptonite exposure risk"
       ),
       new Task(
         crypto.randomUUID(),
-        "Stop Penguin's umbrella-smuggling ring",
+        "Rescue space station from meteor shower",
         false,
         true,
-        new Date(2025, 7, 14),
-        "Bring anti-rainbrella spray"
+        new Date(2025, 7, 16), // Today's date
+        "Check solar flare forecast before departure"
       ),
       new Task(
         crypto.randomUUID(),
-        "Practice brooding on gargoyle (scheduled maintenance)",
-        false,
-        false,
-        new Date(2025, 7, 17),
-        "Gotham Times photographer will be hiding nearby"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Investigate mysterious laughter coming from abandoned carnival",
-        false,
-        false,
-        new Date(2024, 12, 20),
-        "Bring extra bat-earplugs - that cackling is annoying"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Disarm Joker's whoopee cushion bombs in city hall",
-        false,
-        true,
-        new Date(2025, 7, 22),
-        "Warning: May contain glitter AND confetti"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Patrol Crime Alley (anniversary night)",
-        false,
-        false,
-        new Date(2025, 7, 25),
-        "Bring flowers - and extra batarangs"
-      ),
-    ])
-  );
-
-  projectModel.addProject(
-    "Batcave Upkeep",
-    new TaskModel([
-      new Task(
-        crypto.randomUUID(),
-        "Teach Robin to defuse bombs (DO OVER)",
-        false,
-        true,
-        new Date(2025, 6, 22),
-        "Order new cave chandelier - third this month"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Debug Bat-computer's sarcasm module (it called me 'Caped Crusader' again)",
-        false,
-        false,
-        new Date(2025, 7, 14),
-        "Seriously considering factory reset"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Restock bat-shark repellent (summer sale at Costco)",
-        false,
-        false,
-        new Date(2025, 8, 3),
-        "Check expiration date on current canister"
-      ),
-      new Task(
-        crypto.randomUUID(),
-        "Polish Batmobile after Catwoman's latest 'joyride'",
+        "Disable Brainiac's shrinking device in downtown",
         false,
         false,
         new Date(2025, 7, 18),
-        "Remove pawprint decals she added"
+        "Watch for miniaturized civilians"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Roundup escaped phantom zone criminals",
+        false,
+        false,
+        new Date(2025, 7, 20),
+        "Use phantom zone projector - Zod might be among them"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Investigate mysterious heat waves in Suicide Slum",
+        false,
+        true,
+        new Date(2025, 7, 22),
+        "Possible Parasite activity - avoid direct contact"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Save Daily Planet helicopter (Lois is aboard)",
+        false,
+        false,
+        new Date(2025, 7, 25),
+        "Bring extra cape - last one got torn on antenna"
       ),
     ])
   );
 
   projectModel.addProject(
-    "Bruce Wayne Obligations",
+    "Fortress of Solitude Maintenance",
     new TaskModel([
       new Task(
         crypto.randomUUID(),
-        "Attend charity ball (remember not to grapple out mid-conversation)",
+        "Recalibrate Kandorian crystal database",
+        false,
+        true,
+        new Date(2025, 7, 16), // Today's date
+        "Backup first - Krypto messed with settings last week"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Repair Jor-El's hologram projector (glitching again)",
+        false,
+        false,
+        new Date(2025, 7, 17),
+        "Father keeps repeating 'Krypton had it coming'"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Restock ice breath canisters (heat wave emergency)",
+        false,
+        false,
+        new Date(2025, 7, 18),
+        "Priority shipment from Arctic warehouse"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Polish super-suit after Bizarro's muddy fight",
+        false,
+        false,
+        new Date(2025, 7, 19),
+        "Remove backwards 'S' stain he left"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Defrost frozen Legion flight ring collection",
+        false,
+        false,
+        new Date(2025, 7, 20),
+        "Accidental super-breath incident yesterday"
+      ),
+    ])
+  );
+
+  projectModel.addProject(
+    "Clark Kent Duties",
+    new TaskModel([
+      new Task(
+        crypto.randomUUID(),
+        "Interview Lex Luthor at ribbon-cutting ceremony",
         true,
         false,
         new Date(2025, 6, 30),
-        "Left champagne flute on gargoyle - send Alfred"
+        "Remember: No heat vision when he smirks"
       ),
       new Task(
         crypto.randomUUID(),
-        "Explain bat-shaped bruise at Wayne Enterprises meeting",
+        "Explain bullet-hole in press pass to Perry",
         false,
         true,
-        new Date(2025, 7, 14),
-        "'Golf accident' story not working anymore"
+        new Date(2025, 7, 16), // Today's date
+        "'Coffee spill' excuse not working anymore"
       ),
       new Task(
         crypto.randomUUID(),
-        "Buy more 'playboy' tabloid headlines (keep cover intact)",
+        "Write article debunking 'Superman menace' theory",
         false,
         false,
-        new Date(2025, 8, 10),
-        "Hire paparazzi for yacht photoshoot"
+        new Date(2025, 7, 18),
+        "Use Luthor's own quotes against him"
       ),
       new Task(
         crypto.randomUUID(),
-        "Renew membership at Gotham Country Club (for 'golf accident' alibi)",
+        "Attend Smallville High reunion (keep powers subtle)",
         false,
         false,
-        new Date(2025, 7, 16),
-        "Actually learn to golf this time?"
+        new Date(2025, 7, 19),
+        "No floating during basketball game"
       ),
       new Task(
         crypto.randomUUID(),
-        "Host board meeting about 'no, the tower antenna is NOT a bat-signal'",
+        "Fix glasses disguise after super-sneeze incident",
         false,
         true,
+        new Date(2025, 7, 20),
+        "Order 10 backup pairs - thick frames"
+      ),
+      new Task(
+        crypto.randomUUID(),
+        "Lunch with Jimmy Olsen (no x-ray vision on his photos)",
+        false,
+        false,
         new Date(2025, 7, 21),
-        "Prepare unconvincing PowerPoint"
+        "He's suspicious about 'coincidental' rescues"
       ),
     ])
   );
