@@ -27,7 +27,7 @@ export class TasksController {
   };
 
   onSelectedTaskChanged = (selectedTask) => {
-    this.editTaskView.toggleEditPaneVisibility(selectedTask);
+    this.editTaskView.updateEditPaneDisplay(selectedTask);
   };
 
   onTasksChanged = (tasks) => {

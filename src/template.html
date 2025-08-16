@@ -180,12 +180,6 @@
           <span class="icon"></span>
         </label>
 
-        <select class="highlighted" name="project" id="project">
-          <option value="0">Default</option>
-          <option value="1">Work</option>
-          <option value="2">Personal</option>
-        </select>
-
         <input class="highlighted" type="date" name="duedate" id="duedate" />
 
         <textarea
@@ -195,15 +189,13 @@
           placeholder="Add note"
         ></textarea>
 
-        <!-- Add a delete task button -->
-        <button id="submit-todo" class="highlighted" type="submit">
+        <button id="submit-todo" class="highlighted" type="button">
           <img
             class="icon"
             src="./assets/plus-large-svgrepo-com.svg"
-            alt="Add a new task"
+            alt="Update this task"
           />
-          <span>Add this task</span>
-          <!-- should change text to "Apply changes to task" if editing exisitng task-->
+          <span>Update this task</span>
         </button>
       </form>
     </aside>
