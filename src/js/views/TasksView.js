@@ -129,7 +129,6 @@ export class TasksView {
           completedInput,
           importantLabel,
           importantInput,
-          deleteButton,
         ].forEach((el) => {
           el.addEventListener("click", (e) => e.stopPropagation());
         });
@@ -181,6 +180,18 @@ export class TasksView {
         if (!li) return;
         const taskId = li.dataset.taskId;
         handler(taskId, e.target.checked);
+      }
+    });
+  }
+
+  bindDeleteTask(handler) {
+    this.container.addEventListener("click", (e) => {
+      if (e.target.closest(".delete-task")) {
+        const li = e.target.closest("li");
+        if (!li) return;
+        const taskId = li.dataset.taskId;
+        handler(taskId);
+        e.stopImmediatePropagation();
       }
     });
   }
