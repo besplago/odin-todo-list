@@ -26,7 +26,13 @@ export class TaskModel {
     this.selectionObservable._commit(this.getSelectedTask());
   }
 
-  addTask(title, completed, important, dueDate, notes) {
+  addTask({
+    title = "",
+    completed = false,
+    important = false,
+    dueDate = new Date(),
+    notes = "",
+  }) {
     const id = crypto.randomUUID();
     const task = new Task(id, title, completed, important, dueDate, notes);
     this.tasks.push(task);

@@ -196,6 +196,13 @@ export class TasksView {
     });
   }
 
+  bindAddTask(handler) {
+    const addTaskButton = document.querySelector("#add-task-button");
+    addTaskButton.addEventListener("click", (_e) => {
+      handler();
+    });
+  }
+
   formatDate(dateString) {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, "0");

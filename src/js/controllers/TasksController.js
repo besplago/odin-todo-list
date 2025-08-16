@@ -6,6 +6,7 @@ export class TasksController {
 
     this.projectModel.bindSelection(this.onSelectedProjectChanged);
 
+    this.tasksView.bindAddTask(this.handleAddTask);
     this.tasksView.bindDeleteTask(this.handleTaskDeletion);
     this.tasksView.bindCompletion(this.handleCompletion);
     this.tasksView.bindImportant(this.handleImportant);
@@ -33,6 +34,13 @@ export class TasksController {
 
   onTasksChanged = (tasks) => {
     this.tasksView.renderTasks(tasks);
+  };
+
+  handleAddTask = () => {
+    const name = prompt("Task name:");
+    if (name) {
+      this.taskModel.addTask({ title: name });
+    }
   };
 
   handleTaskSelection = (taskId) => {
