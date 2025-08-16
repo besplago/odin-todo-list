@@ -33,4 +33,27 @@ export class EditTaskView {
       handler();
     });
   }
+
+  bindUpdateTask(handler) {
+    const updateTaskButton = this.paneAside.querySelector("#submit-todo");
+
+    updateTaskButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      const title = this.form.querySelector("#title").value;
+      const completed = this.form.querySelector("#completed").checked;
+      const important = this.form.querySelector("#important").checked;
+      const dueDate = this.form.querySelector("#duedate").value;
+      const notes = this.form.querySelector("#notes").value;
+
+      const updatedTask = {
+        title: title || "",
+        completed: completed,
+        important: important,
+        dueDate: dueDate || null,
+        notes: notes || "",
+      };
+
+      handler(updatedTask);
+    });
+  }
 }

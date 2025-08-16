@@ -52,6 +52,20 @@ export class TaskModel {
     return this.tasks.find((task) => task.id === this.selectedTaskId);
   }
 
+  updateTask({ title, completed, important, dueDate, notes }) {
+    const selectedTask = this.getSelectedTask();
+    if (selectedTask === null) {
+      return;
+    }
+
+    selectedTask.title = title;
+    selectedTask.completed = completed;
+    selectedTask.important = important;
+    selectedTask.dueDate = dueDate;
+    selectedTask.notes = notes;
+    this._commitTasks();
+  }
+
   updateSelectedTask(id) {
     this.selectedTaskId = id;
     this._commitSelection();

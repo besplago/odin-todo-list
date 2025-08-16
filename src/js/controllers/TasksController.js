@@ -12,6 +12,7 @@ export class TasksController {
     this.tasksView.bindSelectTask(this.handleTaskSelection);
 
     this.editTaskView.bindCloseEditPane(this.handleEditPaneClosed);
+    this.editTaskView.bindUpdateTask(this.handleTaskUpdate);
 
     this.onSelectedProjectChanged(this.projectModel.getSelectedProject());
   }
@@ -52,5 +53,9 @@ export class TasksController {
 
   handleEditPaneClosed = () => {
     this.taskModel.deselectTask();
+  };
+
+  handleTaskUpdate = (taskData) => {
+    this.taskModel.updateTask(taskData);
   };
 }
