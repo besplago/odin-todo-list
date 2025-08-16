@@ -110,6 +110,7 @@ export class TasksView {
 
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-task");
+        deleteButton.setAttribute("type", "button");
         deleteButton.setAttribute("aria-label", "Delete task");
 
         const deleteImg = document.createElement("img");
