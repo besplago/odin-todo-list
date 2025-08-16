@@ -16,6 +16,9 @@ export class TasksController {
   }
 
   onSelectedProjectChanged = (selectedProject) => {
+    if (this.taskModel !== null) {
+      this.taskModel.deselectTask();
+    }
     this.taskModel = this.projectModel.getSelectedProjectTaskModel();
     this.taskModel.bindSelection(this.onSelectedTaskChanged);
     this.tasksView.renderTasks(selectedProject.tasks.getTasks());
