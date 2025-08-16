@@ -72,7 +72,10 @@ export class TaskModel {
     task.important = important;
   }
 
-  deleteTasks(id) {
+  deleteTask(id) {
+    if (id === this.selectedTaskId) {
+      this.deselectTask();
+    }
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this._commitTasks();
   }

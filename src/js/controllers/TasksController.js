@@ -6,9 +6,10 @@ export class TasksController {
 
     this.projectModel.bindSelection(this.onSelectedProjectChanged);
 
-    this.tasksView.bindSelectTask(this.handleTaskSelection);
+    this.tasksView.bindDeleteTask(this.handleTaskDeletion);
     this.tasksView.bindCompletion(this.handleCompletion);
     this.tasksView.bindImportant(this.handleImportant);
+    this.tasksView.bindSelectTask(this.handleTaskSelection);
 
     this.editTaskView.bindCloseEditPane(this.handleEditPaneClosed);
 
@@ -21,11 +22,16 @@ export class TasksController {
     }
     this.taskModel = this.projectModel.getSelectedProjectTaskModel();
     this.taskModel.bindSelection(this.onSelectedTaskChanged);
+    this.taskModel.bindTasks(this.onTasksChanged);
     this.tasksView.renderTasks(selectedProject.tasks.getTasks());
   };
 
   onSelectedTaskChanged = (selectedTask) => {
     this.editTaskView.toggleEditPaneVisibility(selectedTask);
+  };
+
+  onTasksChanged = (tasks) => {
+    this.tasksView.renderTasks(tasks);
   };
 
   handleTaskSelection = (taskId) => {
@@ -38,6 +44,10 @@ export class TasksController {
 
   handleImportant = (taskId, important) => {
     this.taskModel.updateImportance(taskId, important);
+  };
+
+  handleTaskDeletion = (taskId) => {
+    this.taskModel.deleteTask(taskId);
   };
 
   handleEditPaneClosed = () => {
