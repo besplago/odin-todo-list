@@ -83,6 +83,6 @@ export class ProjectModel {
   }
 
   getSelectedProjectTaskModel() {
-    return this.getSelectedProject().tasks;
+    return this.getSelectedProject().taskModel;
   }
 }
