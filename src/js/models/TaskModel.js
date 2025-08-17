@@ -20,10 +20,12 @@ export class TaskModel {
 
   _commitTasks() {
     this.tasksObservable._commit([...this.tasks]);
+    if (this.onChange) this.onChange();
   }
 
   _commitSelection() {
     this.selectionObservable._commit(this.getSelectedTask());
+    if (this.onChange) this.onChange();
   }
 
   addTask({
@@ -79,11 +81,13 @@ export class TaskModel {
   updateCompletion(id, completed) {
     const task = this.getTask(id);
     task.completed = completed;
+    this._commitTasks();
   }
 
   updateImportance(id, important) {
     const task = this.getTask(id);
     task.important = important;
+    this._commitTasks();
   }
 
   deleteTask(id) {

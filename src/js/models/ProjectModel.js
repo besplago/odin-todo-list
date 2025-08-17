@@ -10,6 +10,10 @@ export class ProjectModel {
     this.selectedProjectId = null;
   }
 
+  saveToLocalStorage() {
+    localStorage.setItem("projectModel", JSON.stringify(this.toJSON()));
+  }
+
   bindProjects(callback) {
     this.projectsObservable.bind(callback);
   }
@@ -20,10 +24,12 @@ export class ProjectModel {
 
   _commitProjects() {
     this.projectsObservable._commit([...this.projects]);
+    this.saveToLocalStorage();
   }
 
   _commitSelection() {
     this.selectionObservable._commit(this.getSelectedProject());
+    this.saveToLocalStorage();
   }
 
   addProject(name, taskModel) {
@@ -31,6 +37,8 @@ export class ProjectModel {
     if (this.selectedProjectId == null) {
       this.selectedProjectId = id;
     }
+
+    taskModel.onChange = () => this.saveToLocalStorage();
 
     const project = new Project(id, name, taskModel);
     this.projects.push(project);
@@ -107,7 +115,11 @@ export class ProjectModel {
 
   static fromJSON(raw) {
     const model = new ProjectModel();
-    model.projects = raw.projects.map((p) => Project.fromJSON(p));
+    model.projects = raw.projects.map((p) => {
+      const proj = Project.fromJSON(p);
+      proj.taskModel.onChange = () => model.saveToLocalStorage();
+      return proj;
+    });
     model.selectedProjectId = raw.selectedProjectId;
     return model;
   }
