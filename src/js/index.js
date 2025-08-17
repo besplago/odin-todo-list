@@ -9,10 +9,9 @@ import { TasksView } from "./views/TasksView.js";
 import { TasksController } from "./controllers/TasksController.js";
 import { EditTaskView } from "./views/EditTaskView.js";
 
-document.addEventListener("DOMContentLoaded", function () {
+function getExampleProjects() {
   const projectModel = new ProjectModel();
 
-  // Example projects
   projectModel.addProject(
     "Metropolis Patrol",
     new TaskModel([
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Stop Lex Luthor's kryptonite smuggling operation",
         true,
         false,
-        new Date(2025, 7, 16), // Today's date
+        new Date(2025, 7, 16),
         "Note: Bring lead-lined suit - kryptonite exposure risk"
       ),
       new Task(
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Rescue space station from meteor shower",
         false,
         true,
-        new Date(2025, 7, 16), // Today's date
+        new Date(2025, 7, 16),
         "Check solar flare forecast before departure"
       ),
       new Task(
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Recalibrate Kandorian crystal database",
         false,
         true,
-        new Date(2025, 7, 16), // Today's date
+        new Date(2025, 7, 16),
         "Backup first - Krypto messed with settings last week"
       ),
       new Task(
@@ -129,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Explain bullet-hole in press pass to Perry",
         false,
         true,
-        new Date(2025, 7, 16), // Today's date
+        new Date(2025, 7, 16),
         "'Coffee spill' excuse not working anymore"
       ),
       new Task(
@@ -166,6 +165,12 @@ document.addEventListener("DOMContentLoaded", function () {
       ),
     ])
   );
+
+  return projectModel;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const projectModel = getExampleProjects();
 
   const projectView = new ProjectView(
     "#projects-pane",
