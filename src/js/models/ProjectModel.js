@@ -26,13 +26,13 @@ export class ProjectModel {
     this.selectionObservable._commit(this.getSelectedProject());
   }
 
-  addProject(name, tasks) {
+  addProject(name, taskModel) {
     const id = crypto.randomUUID();
     if (this.selectedProjectId == null) {
       this.selectedProjectId = id;
     }
 
-    const project = new Project(id, name, tasks);
+    const project = new Project(id, name, taskModel);
     this.projects.push(project);
 
     this._commitProjects();
