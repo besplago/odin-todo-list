@@ -1,4 +1,3 @@
-import { Project } from "../models/Project.js";
 import { TaskModel } from "../models/TaskModel.js";
 
 export class ProjectController {
