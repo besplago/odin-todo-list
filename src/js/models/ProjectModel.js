@@ -97,4 +97,18 @@ export class ProjectModel {
   getSelectedProjectTaskModel() {
     return this.getSelectedProject().taskModel;
   }
+
+  toJSON() {
+    return {
+      projects: this.projects.map((p) => p.toJSON()),
+      selectedProjectId: this.selectedProjectId,
+    };
+  }
+
+  static fromJSON(raw) {
+    const model = new ProjectModel();
+    model.projects = raw.projects.map((p) => Project.fromJSON(p));
+    model.selectedProjectId = raw.selectedProjectId;
+    return model;
+  }
 }

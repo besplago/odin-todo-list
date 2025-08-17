@@ -93,4 +93,18 @@ export class TaskModel {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this._commitTasks();
   }
+
+  toJSON() {
+    return {
+      tasks: this.tasks.map((t) => t.toJSON()),
+      selectedTaskId: this.selectedTaskId,
+    };
+  }
+
+  static fromJSON(raw) {
+    const tasks = raw.tasks.map((t) => Task.fromJSON(t));
+    const model = new TaskModel(tasks);
+    model.selectedTaskId = raw.selectedTaskId;
+    return model;
+  }
 }
