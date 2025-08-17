@@ -180,11 +180,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let projectModel;
 
   if (!localStorage.getItem("projectModel")) {
-    console.log("Loading example projects");
     projectModel = getExampleProjects();
     localStorage.setItem("projectModel", JSON.stringify(projectModel));
   } else {
-    console.log("Loading locally stored projects");
     const raw = JSON.parse(localStorage.getItem("projectModel"));
     projectModel = ProjectModel.fromJSON(raw);
   }
