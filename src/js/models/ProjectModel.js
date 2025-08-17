@@ -39,6 +39,18 @@ export class ProjectModel {
     this._commitSelection();
   }
 
+  addProjectWithId(id, name, taskModel) {
+    if (this.selectedProjectId == null) {
+      this.selectedProjectId = id;
+    }
+
+    const project = new Project(id, name, taskModel);
+    this.projects.push(project);
+
+    this._commitProjects();
+    this._commitSelection();
+  }
+
   getProjects() {
     return [...this.projects];
   }

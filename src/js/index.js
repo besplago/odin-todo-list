@@ -169,8 +169,43 @@ function getExampleProjects() {
   return projectModel;
 }
 
+function loadProjectModel() {
+  const stored = localStorage.getItem("projectModel");
+  if (!stored) {
+    console.log("Loading example projects");
+
+    return getExampleProjects();
+  }
+
+  const raw = JSON.parse(stored);
+
+  const projectModel = new ProjectModel();
+  raw.projects.forEach((proj) => {
+    const tasks = proj.taskModel.tasks.map(
+      (t) =>
+        new Task(
+          t.id,
+          t.title,
+          t.completed,
+          t.important,
+          new Date(t.dueDate),
+          t.notes
+        )
+    );
+
+    const taskModel = new TaskModel(tasks);
+    projectModel.addProjectWithId(proj.id, proj.name, taskModel);
+  });
+
+  projectModel.updateSelectedProject(raw.selectedProjectId);
+  return projectModel;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  const projectModel = getExampleProjects();
+  // localStorage.clear();
+
+  let projectModel = loadProjectModel();
+  localStorage.setItem("projectModel", JSON.stringify(projectModel));
 
   const projectView = new ProjectView(
     "#projects-pane",
