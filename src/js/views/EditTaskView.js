@@ -46,7 +46,9 @@ export class EditTaskView {
       title: this.form.title.value.trim() || "",
       completed: this.form.completed.checked,
       important: this.form.important.checked,
-      dueDate: this.form.duedate.value || null,
+      dueDate: this.form.duedate.value
+        ? new Date(this.form.duedate.value)
+        : null,
       notes: this.form.notes.value.trim() || "",
     };
   }
