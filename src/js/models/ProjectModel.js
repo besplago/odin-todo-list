@@ -97,13 +97,17 @@ export class ProjectModel {
   }
 
   getSelectedProject() {
-    return this.projects.find(
-      (project) => project.id === this.selectedProjectId
+    return (
+      this.projects.find((project) => project.id === this.selectedProjectId) ||
+      null
     );
   }
 
   getSelectedProjectTaskModel() {
-    return this.getSelectedProject().taskModel;
+    if (this.selectedProjectId !== null) {
+      return this.getSelectedProject().taskModel;
+    }
+    return null;
   }
 
   toJSON() {

@@ -23,6 +23,12 @@ export class TasksController {
       this.taskModel.deselectTask();
     }
     this.taskModel = this.projectModel.getSelectedProjectTaskModel();
+
+    if (this.taskModel === null) {
+      this.tasksView.renderTasks([]);
+      return;
+    }
+
     this.taskModel.bindSelection(this.onSelectedTaskChanged);
     this.taskModel.bindTasks(this.onTasksChanged);
     this.tasksView.renderTasks(selectedProject.taskModel.getTasks());

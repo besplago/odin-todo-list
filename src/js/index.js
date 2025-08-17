@@ -175,7 +175,7 @@ export function getExampleProjects() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // localStorage.clear();
+  localStorage.clear();
 
   let projectModel;
 
