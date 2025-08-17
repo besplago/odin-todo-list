@@ -29,7 +29,7 @@ export class ProjectController {
   };
 
   onSelectionChanged = (selectedProject) => {
-    this.view.renderSelectedProjectTitle(selectedProject.name);
+    this.view.renderSelectedProjectTitle(selectedProject.name); // Fix: try deleting every project
   };
 
   handleDeleteProject = (id) => {
