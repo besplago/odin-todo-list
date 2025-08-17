@@ -1,4 +1,5 @@
 import { Project } from "../models/Project.js";
+import { TaskModel } from "../models/TaskModel.js";
 
 export class ProjectController {
   constructor(model, view) {
@@ -16,7 +17,7 @@ export class ProjectController {
     newProjectButton.addEventListener("click", () => {
       const name = prompt("Project name:");
       if (name) {
-        this.model.addProject(new Project(name, []));
+        this.model.addProject(name, new TaskModel());
       }
     });
 
